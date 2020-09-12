@@ -1,14 +1,15 @@
-// Variables and const in js
+//Funtions js
 
-const name = "Helena";
-const lastname = "Gomez";
+const hello = function (name) {
+  return `Hello, ${name}`;
+};
 
-let randon = 5;
-randon = 10;
+const hello2 = (name) => {
+  return `Hello, ${name}`;
+};
 
-console.log(name, lastname, randon)
+const hello3 = (name) => `Hello, ${name}`;
 
-if (true) {
-    let randon = 1;
-    console.log(randon)
-}
+console.log(hello("Jhon"));
+console.log(hello2("Fantasma"));
+console.log(hello3("Valeryon"));
