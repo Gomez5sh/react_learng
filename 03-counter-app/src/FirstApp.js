@@ -1,13 +1,22 @@
 //FC: Funtional Compounents
 import React from "react";
+import PropTypes from "prop-types";
 
-const FirstApp = ({ pro = "You know nothing" }) => {
+const FirstApp = ({ hello, subtitle }) => {
   return (
     <>
-      <h1>{pro}</h1>
-      <p>My First App</p>
+      <h1>{hello}</h1>
+      <p>{subtitle}</p>
     </>
   );
+};
+
+FirstApp.propTypes = {
+  hello: PropTypes.string.isRequired,
+};
+
+FirstApp.defaultProps = {
+  subtitle: "I am a subtitle",
 };
 
 export default FirstApp;
