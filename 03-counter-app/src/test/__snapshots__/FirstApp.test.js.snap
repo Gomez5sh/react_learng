@@ -5,7 +5,9 @@ exports[`Test on <CounterApp /> Show CounterApp  1`] = `
   <h1>
     counterApp
   </h1>
-  <h2 />
+  <h2>
+    10
+  </h2>
   <button
     onClick={[Function]}
   >

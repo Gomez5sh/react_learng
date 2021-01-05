@@ -29,9 +29,13 @@ describe("Test on <CounterApp />", () => {
     expect(PText).toBe(subtitle);
   });*/
 
-  test("Show CounterApp ", () => {
-    const wrapper = shallow(<CounterApp />);
+  let wrapper = shallow(<CounterApp value={10} />);
 
+  beforeEach(() => {
+    wrapper = shallow(<CounterApp value={10} />);
+  });
+
+  test("Show CounterApp ", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -40,5 +44,34 @@ describe("Test on <CounterApp />", () => {
     const newValue = wrapper.find("h2").text().trim();
 
     expect(newValue).toBe("100");
+  });
+
+  test("Increment value ", () => {
+    wrapper.find("button").at(0).simulate("click");
+
+    const newValue = wrapper.find("h2").text().trim();
+
+    expect(newValue).toBe("11");
+    console.log(newValue);
+  });
+
+  test("Drecementar value ", () => {
+    wrapper.find("button").at(2).simulate("click");
+
+    const newValue = wrapper.find("h2").text().trim();
+
+    expect(newValue).toBe("9");
+    console.log(newValue);
+  });
+
+  test("firts value ", () => {
+    const wrapper = shallow(<CounterApp value={105} />);
+
+    wrapper.find("button").at(0).simulate("click");
+    wrapper.find("button").at(0).simulate("click");
+    wrapper.find("button").at(1).simulate("click");
+    const newValue = wrapper.find("h2").text().trim();
+    console.log(newValue);
+    expect(newValue).toBe("105");
   });
 });
