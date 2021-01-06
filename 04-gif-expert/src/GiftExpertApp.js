@@ -15,7 +15,7 @@ export default function GiftExpertApp() {
   return (
     <div>
       <h2>Git Expert App</h2>
-      <AddCategory setCategori={setCategories} />
+      <AddCategory setCategories={setCategories} />
       <hr />
 
       <ol>
