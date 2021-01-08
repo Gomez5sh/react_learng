@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { getGifs } from "../helpers/getGifts";
+import React from "react";
+import { useFechGifs } from "../hooks/useFechGifs";
 import { GiftGridItem } from "./GiftGridItem";
 
 export const GiftGrid = ({ category }) => {
-  const [images, seTimagse] = useState([]);
-
-  useEffect(() => {
-    getGifs(category).then(seTimagse);
-  }, [category]);
+  const { data: images, loading } = useFechGifs(category);
 
   return (
     <>
       <h3>{category}</h3>
-      <div className="card-grid">
+      {loading && (
+        <p className="animate__animated animate__flash">Now Loading</p>
+      )}
+      <div className="card-grid animate__animated animate__fadeIn">
         {images.map((img) => {
           return <GiftGridItem key={img.id} {...img} />;
         })}

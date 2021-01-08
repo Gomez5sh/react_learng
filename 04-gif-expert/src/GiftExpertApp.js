@@ -3,11 +3,13 @@ import { GiftGrid } from "./components/GiftGrid";
 import { AddCategory } from "./components/AddCategory";
 
 export default function GiftExpertApp() {
-  const [categories, setCategories] = useState(["One Piece"]);
+  const [categories, setCategories] = useState([""]);
 
   return (
     <div>
-      <h2 className="title">GIF EXPERT</h2>
+      <h2 className="title animate__animated animate__bounce">
+        Gif Search Engine
+      </h2>
       <AddCategory setCategories={setCategories} />
 
       <ol>
