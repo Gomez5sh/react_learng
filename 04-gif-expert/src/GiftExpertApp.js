@@ -1,27 +1,19 @@
 import React, { useState } from "react";
+import { GiftGrid } from "./components/GiftGrid";
 import { AddCategory } from "./components/AddCategory";
 
 export default function GiftExpertApp() {
-  const [categories, setCategories] = useState([
-    "Code Geas",
-    "Death Note",
-    "One Piece",
-  ]);
-
-  /*const handleApp = () => {
-    setcategories([...categories, "HunterXHunter"]);
-  };*/
+  const [categories, setCategories] = useState(["One Piece"]);
 
   return (
     <div>
-      <h2>Git Expert App</h2>
+      <h2 className="title">GIF EXPERT</h2>
       <AddCategory setCategories={setCategories} />
-      <hr />
 
       <ol>
-        {categories.map((category) => {
-          return <li key={category}>{category}</li>;
-        })}
+        {categories.map((category) => (
+          <GiftGrid key={category} category={category} />
+        ))}
       </ol>
     </div>
   );
